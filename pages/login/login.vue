@@ -7,6 +7,8 @@
 
 <script>
 	const db = uniCloud.database() //创建数据库连接
+	import apiService from '@/api/api.service.js'
+	const _apiService = new apiService()
 	export default {
 		data() {
 			return {
@@ -19,12 +21,7 @@
 				uni.login({
 					provider: 'weixin', //使用微信登录
 					success: async function(loginRes) {
-						let res = await uniCloud.callFunction({
-							name: 'login',
-							data: {
-								code: loginRes.code
-							}
-						})
+						let res = await _apiService.getOpenid(loginRes.code)
 						that.wechatData = res.result.data;
 						console.log('用户信息', that.wechatData);
 					}
@@ -32,11 +29,16 @@
 			},
 			getOpenId() {
 				// console.log('obj', this);
-				db.collection('bill_user').add({
+				_apiService.addCollection('bill_user', {
 					name: '袁创',
 					openId: this.wechatData.openid
 				}).then(res => {
-					console.log(res);
+					console.log('add', res);
+					_apiService.getCollection('bill_user', {
+						_id: res.id
+					}).then(cres => {
+						console.log('get', cres);
+					})
 				})
 			}
 		}
