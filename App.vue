@@ -1,4 +1,5 @@
 <script>
+	import Vue from 'vue'
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
@@ -38,4 +39,5 @@
 	/*每个页面公共css */
 	@import "colorui/main.css";
 	@import "colorui/icon.css";
+	@import "colorui/animation.css";
 </style>
