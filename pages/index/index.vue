@@ -1,10 +1,20 @@
 <template>
 	<view class="content">
-		<button class="avatar-wrapper" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
-			<view class="cu-avatar radius" :style="{backgroundImage:'url('+avatarUrl+')'}"></view>
-		</button>
-		<input type="nickname" class="weui-input" placeholder="请输入昵称" />
-		<button @click="uploadAvatar">按钮</button>
+		<cu-custom bgColor="bg-white" :isBack="true">
+			<block slot="backText" />
+			<block slot="content">完善信息</block>
+		</cu-custom>
+		<view class="avatar-wrapper">
+			<button open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
+				<image class="avatar" :src="avatarUrl"></image>
+			</button>
+		</view>
+		<view class="cu-form-group margin-top">
+			<view class="title">昵称</view>
+			<input name="input" type="nickname" class="weui-input" placeholder="请输入昵称" />
+		</view>
+		<button class="cu-btn bg-green lg">确定</button>
+		<!-- <button @click="uploadAvatar">确定</button> -->
 	</view>
 </template>
 
@@ -39,8 +49,30 @@
 	}
 </script>
 
-<style>
-	.aa {
-		transform: translate(-50%, -50%);
+<style lang="scss" scoped>
+	.avatar-wrapper {
+		height: 400rpx;
+		position: relative;
+
+		button {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border: none !important;
+			width: 120rpx;
+			height: 120rpx;
+			padding: 0;
+		}
+
+		.avatar {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.cu-btn {
+		width: 90%;
+		margin: 60rpx 5% 0;
 	}
 </style>
