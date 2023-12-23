@@ -4,7 +4,7 @@
 			<block slot="backText" />
 			<block slot="content">完善信息</block>
 		</cu-custom>
-		<view class="avatar-wrapper">
+		<!-- <view class="avatar-wrapper">
 			<button open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
 				<image class="avatar" :src="avatarUrl"></image>
 			</button>
@@ -13,8 +13,37 @@
 			<view class="title">昵称</view>
 			<input name="input" type="nickname" class="weui-input" placeholder="请输入昵称" />
 		</view>
-		<button class="cu-btn bg-green lg">确定</button>
-		<!-- <button @click="uploadAvatar">确定</button> -->
+		<button class="cu-btn bg-green lg">确定</button> -->
+		<view class="cu-modal show">
+			<view class="cu-dialog">
+				<view class="cu-bar bg-white justify-end">
+					<view class="action" @tap="hideModal">
+						<text class="cuIcon-close text-gray"></text>
+					</view>
+				</view>
+				<view class="model-content">
+					<view class="title">
+						获取你的头像和昵称
+					</view>
+					<view class="text">
+						为了更方便的让朋友们识别您的身份我们需要获取您的微信头像和昵称
+					</view>
+					<button class="cu-btn bg-green" @click="wxAuthorize">微信授权</button>
+				</view>
+			</view>
+		</view>
+
+		<!-- 	<view class="cu-modal bottom-modal" class="show">
+			<view class="cu-dialog">
+				<view class="cu-bar bg-white">
+					<view class="action text-green">确定</view>
+					<view class="action text-blue" @tap="hideModal">取消</view>
+				</view>
+				<view class="padding-xl">
+					Modal 内容。
+				</view>
+			</view>
+		</view> -->
 	</view>
 </template>
 
@@ -32,6 +61,7 @@
 			console.log(store.state);
 		},
 		methods: {
+			wxAuthorize() {},
 			aaa() {
 				console.log(this.avatarUrl);
 			},
@@ -71,8 +101,18 @@
 		}
 	}
 
-	.cu-btn {
-		width: 90%;
-		margin: 60rpx 5% 0;
+	.model-content {
+		padding: 0 110rpx 60rpx;
+		background-color: white;
+
+		.title {
+			font-size: 34rpx;
+			font-weight: bold;
+		}
+
+		.text {
+			padding: 30rpx 0;
+			color: grey;
+		}
 	}
 </style>
