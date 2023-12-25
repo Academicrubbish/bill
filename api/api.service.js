@@ -28,8 +28,13 @@ class apiService {
 		return res.result
 	}
 	//云数据库查询
-	async getCollection(tableName, data) {
-		let res = await db.collection(tableName).where(data).get()
+	async getCollection(tableName, queryform) {
+		let res = await db.collection(tableName).where(queryform).get()
+		return res.result
+	}
+	//云数据库修改
+	async updateCollection(tableName, queryform, data) {
+		let res = await db.collection(tableName).where(queryform).update(data)
 		return res.result
 	}
 }
