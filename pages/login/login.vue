@@ -74,9 +74,9 @@
 						});
 					}
 					this.loadModal = false;
-					uni.navigateTo({
+					uni.switchTab({
 						url: '/pages/index/index'
-					});
+					})
 				} catch (error) {
 					// 处理检查用户存在性失败的逻辑
 					this.toCatch()

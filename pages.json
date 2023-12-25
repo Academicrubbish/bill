@@ -2,15 +2,19 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
+			"style": {}
 		},
 		{
 			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
+			"style": {}
+		},
+		{
+			"path": "pages/profile/index",
+			"style": {}
+		},
+		{
+			"path": "pages/chart/index",
+			"style": {}
 		}
 	],
 	"globalStyle": {
@@ -20,5 +24,30 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"tabBar": {
+		"color": "#2c2c2c",
+		"selectedColor": "#FF9800",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/chart/index",
+				"text": "图表",
+				"iconPath": "static/tabBar/chart.png",
+				"selectedIconPath": "static/tabBar/chart-active.png"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"text": "记账",
+				"iconPath": "static/tabBar/ledger.png",
+				"selectedIconPath": "static/tabBar/ledger-active.png"
+			},
+			{
+				"pagePath": "pages/profile/index",
+				"text": "我的",
+				"iconPath": "static/tabBar/profile.png",
+				"selectedIconPath": "static/tabBar/profile-active.png"
+			}
+		]
+	}
 }
