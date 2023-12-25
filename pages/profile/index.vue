@@ -10,21 +10,25 @@
 
 <template>
 	<view>
-
+		<avatar-name-popup />
 	</view>
 </template>
 
 <script>
-export default {
-	data() {
-		return {
+	import AvatarNamePopup from '@/component/AvatarNamePopup.vue'
+	export default {
+		components: {
+			AvatarNamePopup
+		},
+		data() {
+			return {
+
+			}
+		},
+		methods: {
 
 		}
-	},
-	methods: {
-
 	}
-}
 </script>
 
 <style></style>
